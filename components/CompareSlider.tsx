@@ -38,6 +38,23 @@ const CompareSlider: React.FC<CompareSliderProps> = ({ beforeImage, afterImage, 
     }
   }, []);
 
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.touches[0].clientX - rect.left;
+      const width = rect.width;
+      const p = Math.max(0, Math.min(100, (x / width) * 100));
+      setPercentage(p);
+    }
+  }, []);
+
+  const handleTouchStart = () => setIsHovering(true);
+
+  const handleTouchEnd = () => {
+    setIsHovering(false);
+    setPercentage(0);
+  };
+
   const handleMouseEnter = () => setIsHovering(true);
 
   const handleMouseLeave = () => {
@@ -48,10 +65,13 @@ const CompareSlider: React.FC<CompareSliderProps> = ({ beforeImage, afterImage, 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full overflow-hidden cursor-ew-resize select-none group ${className}`}
+      className={`relative w-full h-full overflow-hidden cursor-ew-resize select-none group touch-pan-y ${className}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* After Image (Background - Redesign) */}
       <img
