@@ -31,7 +31,7 @@ const BentoItem: React.FC<Props> = ({ item }) => {
     };
 
     return (
-        <div className={`relative flex flex-col ${getSpanClasses(item.gridArea)} group rounded-3xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-neutral-100`}>
+        <div className={`relative flex flex-col ${getSpanClasses(item.gridArea)} ${(item.gridArea === 'tall' || item.id === 'web-3') ? 'h-[85vh]' : 'h-[320px]'} md:h-full group rounded-3xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-neutral-100`}>
 
             {/* Image Area - Clickable */}
             <div className="flex-1 relative w-full overflow-hidden cursor-pointer" onClick={handleClick}>

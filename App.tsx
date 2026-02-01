@@ -62,7 +62,7 @@ const App = () => {
 
       {/* Gallery Grid */}
       <main className="px-6 md:px-12 max-w-[1600px] mx-auto mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-[320px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-auto md:auto-rows-[320px]">
           {REDESIGN_CASES.map((item) => (
             <BentoItem key={item.id} item={item} />
           ))}
