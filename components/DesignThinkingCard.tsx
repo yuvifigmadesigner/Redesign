@@ -12,28 +12,28 @@ const DesignThinkingCard: React.FC<Props> = ({ data }) => {
       <div className="grid grid-cols-1 gap-6">
         {/* Problem */}
         <div>
-            <h4 className="font-sans text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">The Challenge</h4>
-            <p className="font-serif text-lg text-neutral-800 leading-relaxed italic border-l-2 border-red-200 pl-4">
+            <h4 className="font-sans text-xs font-bold text-muted-400 uppercase tracking-widest mb-2">The Challenge</h4>
+            <p className="font-sans text-lg text-ink leading-relaxed border-l-2 border-brand-200 pl-4">
                 "{data.problem}"
             </p>
         </div>
 
         {/* Solution */}
         <div>
-            <h4 className="font-sans text-xs font-bold text-neutral-400 uppercase tracking-widest mb-2">The Solution</h4>
-            <p className="font-sans text-sm text-neutral-600 leading-relaxed pl-4">
+            <h4 className="font-sans text-xs font-bold text-muted-400 uppercase tracking-widest mb-2">The Solution</h4>
+            <p className="font-sans text-sm text-muted leading-relaxed pl-4">
                 {data.solution}
             </p>
         </div>
       </div>
 
       {/* Key Decision Highlight */}
-      <div className="bg-neutral-50 rounded-xl p-6 border border-neutral-100">
-        <h4 className="font-sans text-xs font-bold text-neutral-900 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
+      <div className="bg-cream-100 rounded-xl p-6 border border-cream-300">
+        <h4 className="font-sans text-xs font-bold text-ink uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-brand rounded-full"></span>
             Key Strategic Decision
         </h4>
-        <p className="font-sans text-sm font-medium text-neutral-700 leading-relaxed">
+        <p className="font-sans text-sm font-medium text-muted-600 leading-relaxed">
             {data.keyDecision}
         </p>
       </div>

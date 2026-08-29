@@ -1,0 +1,31 @@
+/* --- PP Mori (self-hosted) ---
+   PP Mori is a licensed typeface from Pangram Pangram and is not distributable
+   via a public CDN. Drop your licensed .woff2 files into public/fonts/ using the
+   names below and they will be picked up automatically. Until then the stack
+   falls through to the system sans-serif. */
+
+@font-face {
+  font-family: 'PP Mori';
+  src: url('/fonts/PPMori-Extralight.woff2') format('woff2');
+  font-weight: 200 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Mori';
+  src: url('/fonts/PPMori-Regular.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* No Bold cut ships with PP Mori, so 700 resolves to SemiBold rather than
+   letting the browser synthesise a fake bold. */
+@font-face {
+  font-family: 'PP Mori';
+  src: url('/fonts/PPMori-SemiBold.woff2') format('woff2');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}

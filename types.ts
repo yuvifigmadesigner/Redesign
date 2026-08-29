@@ -12,6 +12,7 @@ export interface RedesignCase {
     keyDecision: string;
   };
   tags: string[];
+  featured?: boolean; // Standout case — marked with a crown beside the title
   externalLink?: string; // Optional URL for redirect items
   backgroundColor?: string; // Optional custom background color for image container
   imageFit?: 'cover' | 'contain'; // Optional control for object-fit

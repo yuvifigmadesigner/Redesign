@@ -5,6 +5,7 @@ export const REDESIGN_CASES: RedesignCase[] = [
   {
     id: 'mob-1',
     title: 'Screener AI',
+    featured: true,
     description: 'It is a great source for getting financial data reported by companies along with transcripts, quarter results and more.',
     category: 'Mobile App',
     beforeImage: '/screener_problem.png',
@@ -21,6 +22,7 @@ export const REDESIGN_CASES: RedesignCase[] = [
   {
     id: 'mob-2',
     title: 'Music Streaming',
+    featured: true,
     description: 'Modernizing player controls for gesture navigation.',
     category: 'Mobile App',
     beforeImage: '/amazon%20music.png',
@@ -70,6 +72,7 @@ export const REDESIGN_CASES: RedesignCase[] = [
   {
     id: 'mob-5',
     title: 'Urban Company',
+    featured: true,
     description: 'Urban Company is a popular service provider for home maintenance needs, offering services such as plumbing, electrical, and cleaning.',
     category: 'Mobile App',
     beforeImage: '/UC.png',
@@ -105,8 +108,7 @@ export const WEBSITE_CONTENT = {
     badge: "From Friction to Flow",
     titleLine1: "The Art of",
     titleLine2: "Better Decisions.",
-    description: "Explore a collection of pivotal interface redesigns. Move the slider to compare evolution, and dive deep into the strategic thinking that drove the change.",
-    scrollText: "Scroll to Explore"
+    description: "A buried action. One step too many. A choice nobody needed to make. Each study here traces what was breaking, what changed, and the thinking behind it."
   },
   footer: {
     status: "Open for work",
@@ -114,8 +116,8 @@ export const WEBSITE_CONTENT = {
     email: "yuvrajkumar0221@gmail.com",
     socialLinks: {
       pinterest: "https://pin.it/4W3xB3bD4",
-      instagram: "https://instagram.com/yu_veeee",
-      linkedin: "https://www.linkedin.com/in/yuvrajgupta0221"
+      linkedin: "https://www.linkedin.com/in/yuvrajgupta-ux/",
+      portfolio: "https://yuvi-portfolio.in"
     }
   },
   metadata: {

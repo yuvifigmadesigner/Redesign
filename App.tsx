@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import BentoItem from './components/BentoItem';
 import FooterContact from './components/FooterContact';
 import { REDESIGN_CASES, WEBSITE_CONTENT } from './constants';
@@ -12,7 +12,7 @@ const App = () => {
       setShowScrollTop(window.scrollY > 400);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,36 +35,45 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen pb-12 bg-background relative selection:bg-neutral-200">
+    <div className="min-h-screen pb-12 bg-background relative selection:bg-brand-100">
 
       {/* Hero Section */}
-      <header className="pt-24 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto">
-        <div className="max-w-4xl">
-          <span className="inline-block mb-6 px-3 py-1 rounded-full border border-neutral-200 bg-white text-[10px] font-bold tracking-widest uppercase text-neutral-500 shadow-sm">
-            {WEBSITE_CONTENT.hero.badge}
-          </span>
-          <h1 className="font-serif text-6xl md:text-8xl text-neutral-900 leading-[1.1] mb-8">
-            {WEBSITE_CONTENT.hero.titleLine1} <br />
-            <span className="italic text-neutral-400">{WEBSITE_CONTENT.hero.titleLine2}</span>
-          </h1>
-          <p className="font-sans text-lg md:text-xl text-neutral-500 leading-relaxed max-w-2xl mb-12">
-            {WEBSITE_CONTENT.hero.description}
-          </p>
+      <header className="pt-20 md:pt-28 pb-16 md:pb-24 px-6 md:px-12 max-w-[1600px] mx-auto flex flex-col items-center text-center">
 
-          <div className="flex items-center gap-4 text-xs font-bold tracking-widest uppercase text-neutral-400">
-            <div className="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center animate-bounce">
-              <ArrowDown size={14} />
-            </div>
-            {WEBSITE_CONTENT.hero.scrollText}
-          </div>
-        </div>
+        {/* Eyebrow */}
+        <span className="hero-fade inline-flex items-center gap-2.5 mb-8 px-3.5 py-1.5 rounded-full border border-cream-300 bg-white text-[10px] font-bold tracking-widest uppercase text-muted shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand"></span>
+          {WEBSITE_CONTENT.hero.badge}
+        </span>
+
+        {/* Headline — each line slides up from behind its own mask */}
+        <h1 className="font-serif text-[3.25rem] sm:text-7xl lg:text-8xl xl:text-[7.5rem] text-ink leading-[0.95] tracking-[-0.02em] max-w-6xl mb-8 md:mb-10">
+          <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
+            <span className="hero-line block" style={{ animationDelay: '0.08s' }}>
+              {WEBSITE_CONTENT.hero.titleLine1}
+            </span>
+          </span>
+          <span className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
+            <span className="hero-line block text-brand" style={{ animationDelay: '0.18s' }}>
+              {WEBSITE_CONTENT.hero.titleLine2}
+            </span>
+          </span>
+        </h1>
+
+        {/* Short centred rule — a full-width line fights a centred column */}
+        <div className="hero-fade h-px w-16 bg-cream-400 mb-8 md:mb-10" style={{ animationDelay: '0.34s' }}></div>
+
+        <p className="hero-fade font-sans text-lg md:text-xl text-muted leading-relaxed max-w-2xl" style={{ animationDelay: '0.4s' }}>
+          {WEBSITE_CONTENT.hero.description}
+        </p>
+
       </header>
 
       {/* Gallery Grid */}
       <main className="px-6 md:px-12 max-w-[1600px] mx-auto mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-auto md:auto-rows-[320px]">
-          {REDESIGN_CASES.map((item) => (
-            <BentoItem key={item.id} item={item} />
+          {REDESIGN_CASES.map((item, index) => (
+            <BentoItem key={item.id} item={item} index={index} />
           ))}
         </div>
       </main>
@@ -75,7 +84,7 @@ const App = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 bg-black text-white rounded-full shadow-xl flex items-center justify-center transition-all duration-500 hover:bg-neutral-800 z-50 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        className={`fixed bottom-8 right-8 w-12 h-12 bg-ink text-white rounded-full shadow-sm flex items-center justify-center transition-all duration-500 hover:bg-ink-700 z-50 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
           }`}
         aria-label="Scroll to top"
       >
